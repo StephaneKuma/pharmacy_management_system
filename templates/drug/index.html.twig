@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Drug index{% endblock %}
+
+{% block body %}
+    <h1>Drug index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Manufacturer</th>
+                <th>Name</th>
+                <th>BatchNumber</th>
+                <th>AddedAt</th>
+                <th>ExpiryDate</th>
+                <th>Quantity</th>
+                <th>PricePerUnit</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for drug in drugs %}
+            <tr>
+                <td>{{ drug.id }}</td>
+                <td>{{ drug.manufacturer }}</td>
+                <td>{{ drug.name }}</td>
+                <td>{{ drug.batchNumber }}</td>
+                <td>{{ drug.addedAt ? drug.addedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ drug.expiryDate ? drug.expiryDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ drug.quantity }}</td>
+                <td>{{ drug.pricePerUnit }}</td>
+                <td>
+                    <a href="{{ path('drug_show', {'id': drug.id}) }}">show</a>
+                    <a href="{{ path('drug_edit', {'id': drug.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('drug_new') }}">Create new</a>
+{% endblock %}

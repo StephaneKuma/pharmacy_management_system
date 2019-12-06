@@ -1,0 +1,8 @@
+{
+  "name": "pharmacy_management_system",
+  "version": "1.0.0",
+  "dependencies": {
+    "tailwindcss": "latest",
+    "autoprefixer": "latest"
+  }
+}
