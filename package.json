@@ -2,7 +2,11 @@
   "name": "pharmacy_management_system",
   "version": "1.0.0",
   "dependencies": {
+    "autoprefixer": "latest",
     "tailwindcss": "latest",
-    "autoprefixer": "latest"
+    "tailwindcss-gradients": "^2.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/custom-forms": "latest"
   }
 }

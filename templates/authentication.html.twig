@@ -6,11 +6,8 @@
         <link rel="stylesheet" href="/css/tailwind.css">
         {% block stylesheets %}{% endblock %}
     </head>
-    <body class="antialiased xl:flex-1 xl:flex">
-        {% include "partials/_navbar.html.twig" %}
-        <main class="bg-blue-600 py-6 xl:flex-1 xl:overflow-x-hidden">
-            {% block body %}{% endblock %}
-        </main>
+    <body class="antialiased bg-blue-700">
+        {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>

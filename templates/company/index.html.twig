@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Company index{% endblock %}
+
+{% block body %}
+    <div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
+
+        <h1 class="flex items-center font-serif font-bold break-normal text-white px-2 py-8 text-xl md:text-2xl">
+            Liste des filières
+        </h1>
+
+        <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
+            <table class="table w-full mt-2 pb-2 stripe hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for company in companies %}
+                    <tr>
+                        <td>{{ company.id }}</td>
+                        <td>{{ company.name }}</td>
+                        <td>
+                            <a href="{{ path('company_show', {'id': company.id}) }}">show</a>
+                            <a href="{{ path('company_edit', {'id': company.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <a href="{{ path('company_new') }}">Create new</a>
+{% endblock %}
